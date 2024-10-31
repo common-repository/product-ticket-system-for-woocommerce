@@ -1,0 +1,1642 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap'); */
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f7f7f7;
+  padding: 0 10px;
+} */
+
+.wrapper {
+  background: #fff;
+  max-width: 450px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.5);
+}
+
+body,
+button,
+input,
+textarea {
+  color: #43454b;
+  font-family: "Source Sans Pro", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  line-height: 1.1;
+  text-rendering: optimizeLegibility;
+  font-weight: 400;
+}
+
+/* Chat Area CSS Start */
+.chat-area header {
+  display: flex;
+  align-items: center;
+  padding: 18px 30px;
+}
+
+.chat-area header .back-icon {
+  color: #333;
+  font-size: 18px;
+}
+
+.chat-area header img {
+  height: 45px;
+  width: 45px;
+  margin: 0 15px;
+}
+
+.chat-area header .details span {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.chat-box {
+  position: relative;
+  min-height: 200px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 10px;
+  background: #f7f7f7;
+  box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%),
+    inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
+}
+
+.chat-box .text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: calc(100% - 50px);
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.chat-box .chat {
+  margin: 16px 0 0;
+}
+
+.chat-box .chat:first-child {
+  margin: 0 0 16px;
+}
+
+.chat-box .chat p {
+  word-wrap: break-word;
+  padding: 16px 20px;
+  box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0rem 16px 16px -16px rgb(0 0 0 / 10%);
+}
+
+.chat-box .outgoing {
+  display: flex;
+}
+
+.chat-box .outgoing .details {
+  margin-left: auto;
+  margin-right: 16px;
+  max-width: calc(100% - 130px);
+}
+
+.outgoing .details p {
+  background: #333;
+  color: #fff;
+  border-radius: 18px 18px 0 18px;
+}
+
+.chat-box .incoming {
+  display: flex;
+  align-items: flex-end;
+}
+
+.chat-box .incoming img,
+.chat-box .outgoing img {
+  height: 100% !important;
+  width: 100% !important;
+  max-width: 125px !important;
+  max-height: 125px !important;
+  object-fit: cover;
+  object-position: center;
+}
+
+.chat-box .incoming .details {
+  margin-right: auto;
+  margin-left: 16px;
+  max-width: calc(100% - 130px);
+}
+
+.incoming .details p {
+  background: #fff;
+  color: #333;
+  border-radius: 18px 18px 18px 0;
+}
+
+.typing-area {
+  padding: 18px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.typing-area input {
+  height: auto;
+  width: 100%;
+  width: calc(100% - 58px);
+  font-size: 16px;
+  padding: 0 13px;
+  border: 1px solid #e6e6e6;
+  outline: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.typing-area button {
+  color: #fff;
+  width: 55px;
+  border: none;
+  outline: none;
+  background: #333;
+  font-size: 19px;
+  line-height: 28px;
+  cursor: pointer;
+  opacity: 1;
+  /* pointer-events: none; */
+  border-radius: 0 5px 5px 0;
+  transition: all 0.3s ease;
+}
+
+.typing-area button.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.upload-btn-wrapper {
+  margin-bottom: 0;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 14px;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.upload-btn-wrapper input[type=file]:hover {
+  cursor: pointer;
+}
+
+.ticket-dropdown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 75%;
+  width: 100%;
+}
+
+.ticket-dropdown-inner {
+  width: calc(100% / 2 - 15px);
+  margin-bottom: 25px;
+}
+
+/*chat box*/
+.wcpt-chat h3 {
+  font-size: 32px;
+  line-height: 48px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.chat-main {
+  background: #E9E9FC;
+  max-width: 100%;
+  padding: 24px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.chat-inner {
+  background: transparent;
+  box-shadow: none;
+}
+
+.chat-main .typing-area {
+  position: relative;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  row-gap: 12px;
+}
+
+.type-inner-first {
+  width: 100%;
+  max-width: 74% !important;
+}
+
+.type-inner-second {
+  width: 100%;
+  max-width: 24% !important;
+  height: 100%;
+}
+
+.type-inner-first input {
+  width: 100%;
+  background: #fff !important;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  border-radius: 8px;
+  resize: none;
+  padding: 12px 16px !important;
+  color: #333333 !important;
+}
+
+.type-inner-first input:focus {
+  outline: none;
+  color: #333333;
+}
+
+.type-inner-second .upload-btn-wrapper {
+  margin: 0;
+}
+
+.type-inner-second .upload-btn-wrapper:hover {
+  cursor: pointer;
+}
+
+.type-inner-second .upload-btn-wrapper .btn {
+  width: 100%;
+  padding: 12px 20px;
+  cursor: pointer;
+  min-height: 54px;
+}
+
+.type-inner-third {
+  flex-grow: 1.5;
+  text-align: center;
+  max-width: 100% !important;
+}
+
+.type-inner-third button {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  background: #424293 !important;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  opacity: 1;
+  padding: 12px 20px;
+  flex-grow: 1.5;
+}
+
+.type-inner-third button:hover {
+  color: #fff;
+}
+
+/**/
+.admin-chat .chat-main {
+  max-width: 94.3%;
+}
+
+
+
+/* ###################################################################### Default CSS ################################################################################################ */
+/* 2121 Default CSS */
+input[type=text]:disabled,
+input[type=email]:disabled,
+input[type=url]:disabled,
+input[type=password]:disabled,
+input[type=search]:disabled,
+input[type=number]:disabled,
+input[type=tel]:disabled,
+input[type=date]:disabled,
+input[type=month]:disabled,
+input[type=week]:disabled,
+input[type=time]:disabled,
+input[type=datetime]:disabled,
+input[type=datetime-local]:disabled,
+input[type=color]:disabled,
+.site textarea:disabled {
+  opacity: 1;
+  background-color: #e9e9f6;
+}
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+input[type=search],
+input[type=number],
+input[type=tel],
+input[type=date],
+input[type=month],
+input[type=week],
+input[type=time],
+input[type=datetime],
+input[type=datetime-local],
+input[type=color],
+.site textarea {
+  margin: 0;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.site .button:focus,
+button:focus,
+input[type=submit]:focus,
+input[type=reset]:focus,
+.wp-block-search .wp-block-search__button:focus,
+.wp-block-button .wp-block-button__link:focus,
+.wp-block-file a.wp-block-file__button:focus {
+  outline: none;
+}
+
+
+a:hover {
+  text-decoration-style: none;
+}
+
+.site a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
+  outline: none;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/* End of 2121 Default CSS */
+
+.woocommerce h2 {
+  font-size: 36px;
+  line-height: 54px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.woocommerce .ticket-inner {
+  padding: 24px;
+  border-radius: 10px;
+}
+
+.woocommerce-account .woocommerce-MyAccount-content p:first-of-type {
+  margin-bottom: 0;
+}
+
+.woocommerce .ticket-header .ticket-id p,
+.woocommerce .ticket-header .ticket-id p label {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: 8px;
+  margin-bottom: 0;
+}
+
+.woocommerce .ticket-form label {
+  display: block;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.woocommerce .ticket-form input,
+.woocommerce .ticket-form textarea {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  background: #fff !important;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  border: 2px solid #D7D7F9 !important;
+  border-radius: 8px;
+  resize: none;
+  padding: 12px 16px !important;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+.woocommerce .ticket-form input:disabled,
+.woocommerce .ticket-form textarea:disabled {
+  background: #e9e9f6 !important;
+}
+
+.woocommerce textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+.woocommerce .ticket-form {
+  margin-bottom: 40px;
+}
+
+.woocommerce .ticket-dropdown-inner label {
+  display: block;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.woocommerce .final-btn button {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 12px 24px;
+  column-gap: 8px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 400;
+  background: #424293;
+  color: #fff;
+  border-radius: 10px;
+  border: 1px solid #424293;
+  transition: 0.5s all;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.woocommerce .final-btn button:hover {
+  background-color: #fff;
+  color: #424293;
+}
+
+.woocommerce .wcpt-chat {
+  margin-top: 50px;
+}
+
+.woocommerce .chat-area {
+  padding-top: 0;
+}
+
+/* Error / Success */
+span.error {
+  font-size: 14px !important;
+  line-height: 18px !important;
+  font-weight: 400 !important;
+}
+
+.success {
+  font-size: 16px !important;
+  line-height: 20px !important;
+  font-weight: 500 !important;
+}
+
+/* ###################################################################### Default CSS ################################################################################################ */
+
+
+/* ###################################################################### New CSS ################################################################################################ */
+.ticket-date p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.ticket-header .ticket-date p,
+.ticket-header .ticket-date p label {
+  margin-bottom: 0;
+}
+
+.new-ticket .ticket-radio.ticket-dropdown-inner input {
+  width: 100%;
+  height: auto;
+  border: 2px solid #D7D7F9 !important;
+}
+
+.new-ticket .upload-main {
+  margin-bottom: 32px;
+}
+
+.new-ticket .upload-inner {
+  margin-bottom: 0;
+}
+
+.new-ticket .upload-inner label {
+  font-weight: 500;
+  display: block;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.new-ticket .upload-inner .s-feature-img {
+  margin-top: 5px;
+}
+
+.new-ticket .upload-inner .s-feature-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  max-width: 125px !important;
+  max-height: 125px !important;
+}
+
+.new-ticket .final-btn {
+  width: 100%;
+  position: relative;
+}
+
+.new-ticket .chat-box {
+  padding: 12px;
+}
+
+.chat-main .outgoing .details p {
+  background: #64649B;
+  color: #fff;
+  border-radius: 18px 18px 0 18px;
+}
+
+.chat-main .outgoing .details p,
+.chat-main .incoming .details p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.chat-main .outgoing .details p span:first-child,
+.chat-main .outgoing .details p span:first-child {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.chat-main .outgoing .details p span:last-child,
+.chat-main .outgoing .details p span:last-child {
+  margin-left: auto;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.chat-main .incoming .details p span:first-child,
+.chat-main .incoming .details p span:first-child {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.chat-main .incoming .details p span:last-child,
+.chat-main .incoming .details p span:last-child {
+  margin-left: auto;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.new-ticket .upload-btn-wrapper .btn {
+  display: inline-block;
+  color: #000000 !important;
+  background-color: white !important;
+  border-color: transparent;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.new-ticket .upload-btn-wrapper .btn span {
+  width: 100%;
+  min-width: 12px;
+  max-width: 40px;
+  margin-right: 8px;
+}
+
+.new-ticket .upload-btn-wrapper .btn span img {
+  display: inline-block;
+}
+
+.new-ticket .upload-btn-wrapper .btn:hover {
+  color: #fff !important;
+  background-color: #424293 !important;
+  cursor: pointer;
+}
+
+.new-ticket .upload-btn-wrapper input {
+  max-width: none;
+}
+
+.woocommerce .chat .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 16px;
+}
+
+.woocommerce .chat .details a,
+.woocommerce .chat .details a img,
+.woocommerce .chat .details p {
+  position: relative;
+  z-index: 2;
+}
+
+.woocommerce .incoming .details p,
+.woocommerce .outgoing .details p {
+  box-sizing: border-box;
+}
+
+.woocommerce .incoming .details p::after,
+.woocommerce .outgoing .details p::after {
+  position: absolute;
+  bottom: 0;
+  width: max-content;
+  height: auto;
+}
+
+.woocommerce .incoming .details p::after {
+  content: '';
+  left: -27px;
+  bottom: 0;
+  background: url(../img/chat-curve-left.svg) no-repeat center center / 42px;
+  width: 42px;
+  height: 31px;
+}
+
+/* .woocommerce .incoming .details p::after { transform: translate(-27px, 7px) !important;} */
+
+/* .woocommerce .outgoing .details p::after { content: url(../img/chat-curve-right.svg); right: 0; -webkit-transform: translate(27px, 6px); transform: translate(27px, 7px);} */
+.woocommerce .outgoing .details p::after {
+  content: '';
+  right: -27px;
+  bottom: 0;
+  background: url(../img/chat-curve-right.svg) no-repeat center center / 42px;
+  width: 42px;
+  height: 31px;
+}
+
+.woocommerce .incoming .details a img {
+  border-radius: 18px 18px 18px 0;
+}
+
+.woocommerce .outgoing .details a img {
+  border-radius: 18px 18px 0 18px;
+}
+
+.woocommerce .final-btn button,
+.woocommerce .type-inner-third button {
+  background-color: #424293 !important;
+  color: #fff !important;
+  border: 1px solid #424293 !important;
+  transition: 0.3s all ease;
+}
+
+.woocommerce .final-btn button:hover,
+.woocommerce .type-inner-third button:hover {
+  background-color: #fff !important;
+  color: #424293 !important;
+  cursor: pointer;
+  border-radius: 10px
+}
+
+.woocommerce .type-inner-third button img {
+  filter: brightness(0) invert(1);
+  transition: 0.3s all ease;
+}
+
+.woocommerce .type-inner-third button:hover img {
+  filter: brightness(1) invert(0);
+}
+
+.woocommerce .final-btn button:disabled,
+.woocommerce .type-inner-third button:disabled {
+  pointer-events: none !important;
+}
+
+.woocommerce .final-btn button:disabled:hover,
+.woocommerce .type-inner-third button:disabled:hover {
+  pointer-events: none !important;
+  background-color: #424293 !important;
+  color: #fff !important;
+}
+
+.success {
+  color: green !important;
+  font-size: 16px;
+  line-height: 100%;
+  font-weight: 500;
+}
+
+
+/* Raise New Ticket CSS */
+.woocommerce-account .woocommerce-MyAccount-content input[type=radio] {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #64649B !important;
+  margin-top: 0;
+  margin-bottom: auto;
+  position: relative;
+}
+
+.woocommerce-account .woocommerce-MyAccount-content input[type=radio]:first-of-type+label {
+  margin-top: 0.5rem;
+}
+
+.woocommerce-account .woocommerce-MyAccount-content input[type=radio]+label {
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+input[type=radio]:checked:focus {
+  outline: none;
+}
+
+.ticket-radio input[type='radio']:checked:after {
+  /* top: -4px; */
+  position: absolute;
+  top: 50% !important;
+}
+
+.upload-main:has(.new-ticket-upload-btn) {
+  display: inline-block;
+  width: 100%;
+  max-width: calc(100% / 2 - 15px) !important;
+}
+
+.new-ticket-upload-btn,
+.new-ticket-upload-btn button {
+  width: 100%;
+}
+
+.new-ticket-upload-btn .btn {
+  gap: 6px;
+  text-align: start;
+}
+
+.ticket-dropdown {
+  max-width: 100%;
+}
+
+.new-ticket .priority-detail {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 8px;
+}
+
+.new-ticket input[type=radio]:first-of-type+label {
+  margin-top: 0 !important;
+}
+
+/* .new-ticket .priority-detail input[type=radio]::after { content: none;} */
+/* input[type=radio]:checked { background-color: #424293;} */
+/* End of Raise New Ticket CSS */
+
+
+/* Admin Panel (BackEnd) */
+/* My Tickets ADMIN SIDE Table */
+.woocommerce .my-tickets-list .product-ticket-table-wrapper {
+  overflow: auto;
+}
+
+.woocommerce .my-tickets-list .add-new-ticket {
+  margin-bottom: 32px;
+}
+
+.woocommerce .my-tickets-list .add-new-ticket a {
+  display: inline-block !important;
+  background-color: #424293 !important;
+  color: #fff !important;
+  border: 1px solid #424293 !important;
+  transition: 0.3s all ease;
+  border-radius: 10px;
+  text-decoration: none !important;
+}
+
+.woocommerce .my-tickets-list .add-new-ticket a:hover {
+  background-color: #fff !important;
+  color: #424293 !important;
+  cursor: pointer;
+  border-radius: 10px
+}
+
+.woocommerce .my-tickets-list table {
+  margin-bottom: 12px;
+  background-color: #fff;
+}
+
+.woocommerce .my-tickets-list table * {
+  text-align: start;
+  border-color: #64649B;
+  padding: 1em 1.41575em;
+  vertical-align: middle;
+}
+
+.woocommerce .my-tickets-list table th {
+  background-color: #E6E6FA;
+  color: #424293;
+  text-align: center;
+}
+
+.woocommerce .my-tickets-list table td {
+  transition: 0.3s all ease;
+}
+
+.woocommerce .my-tickets-list table td a {
+  text-decoration: underline;
+}
+
+.woocommerce .my-tickets-list table td:has(a):hover {
+  background-color: #424293;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+
+.woocommerce .my-tickets-list table td:has(a):hover a {
+  color: #E6E6FA;
+}
+
+.page-numbers {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  column-gap: 8px;
+  padding: 12px 16px;
+}
+
+.page-numbers li a,
+.page-numbers li span:not(.dots) {
+  color: #333;
+  background-color: #fbfbfb;
+  text-decoration: none !important;
+  transition: 0.3s all ease;
+  border-radius: 8px;
+  outline: none !important;
+  text-underline-offset: 0px;
+}
+
+.page-numbers li:hover a,
+.page-numbers li:hover span:not(.dots),
+.page-numbers li a:focus,
+.page-numbers li a:active,
+.page-numbers li .current {
+  color: #fff !important;
+  background-color: #333 !important;
+  cursor: pointer;
+}
+
+.page-numbers li .current {
+  pointer-events: none;
+}
+
+.ticket-dropdown-inner select,
+.ticket-dropdown-inner input {
+  width: 100%;
+  padding: 10px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #333333;
+  background-color: #fff;
+  border: 2px solid #D7D7F9 !important;
+  border-radius: 8px;
+}
+
+/* End of My Tickets ADMIN SIDE Table */
+
+.admin-support-ticket input:disabled,
+.admin-support-ticket textarea:disabled {
+  background: #e9e9f6 !important;
+}
+
+/* Admin Chat */
+.admin-support-ticket .attach-img img {
+  object-fit: cover;
+  object-position: center;
+  max-width: 125px !important;
+  max-height: 125px !important;
+}
+
+.admin-support-ticket h3 {
+  margin-bottom: 4px;
+}
+
+.admin-chat .chat-box {
+  overflow-x: hidden;
+}
+
+.admin-chat .chat-box .chat {
+  margin-top: 12px;
+}
+
+.admin-chat .chat-main {
+  width: auto;
+  max-width: none;
+}
+
+.admin-chat .chat .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 16px;
+}
+
+.admin-chat .chat .details a,
+.admin-chat .chat .details a img,
+.admin-chat .chat .details p {
+  position: relative;
+  z-index: 2;
+}
+
+.admin-chat .chat .details p {
+  margin: 0;
+}
+
+.admin-chat .incoming .details p::after,
+.admin-chat .outgoing .details p::after {
+  position: absolute;
+  bottom: 0;
+  width: max-content;
+  height: auto;
+}
+
+.admin-chat .incoming .details p::after {
+  content: '';
+  left: -27px;
+  bottom: 0;
+  background: url(../img/chat-curve-left.svg) no-repeat center center / 42px;
+  width: 42px;
+  height: 31px;
+}
+
+/* .admin-chat .incoming .details p::after { content: url(../img/chat-curve-left.svg); left: 0; -webkit-transform: translate(-27px, 9px); transform: translate(-27px, 9px);} */
+/* .admin-chat .incoming .details p::after { transform: translate(-27px, 7px); } */
+
+.admin-chat .outgoing .details p::after {
+  content: '';
+  right: -27px;
+  bottom: 0;
+  background: url(../img/chat-curve-right.svg) no-repeat center center / 42px;
+  width: 42px;
+  height: 31px;
+}
+
+/* .admin-chat .outgoing .details p::after { content: url(../img/chat-curve-right.svg); right: 0; -webkit-transform: translate(27px, 9.1px); transform: translate(27px, 9.1px);} */
+/* .admin-chat .outgoing .details p::after { transform: translate(27px, 7px); } */
+
+.admin-chat .incoming .details a img {
+  border-radius: 18px 18px 18px 0;
+}
+
+.admin-chat .outgoing .details a img {
+  border-radius: 18px 18px 0 18px;
+  ;
+}
+
+.admin-chat .outgoing .details a {
+  margin-left: auto;
+}
+
+.admin-chat .incoming .details a {
+  margin-right: auto;
+}
+
+.admin-chat .upload-btn-wrapper .btn {
+  display: inline-block;
+  color: #000000 !important;
+  background-color: white !important;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-chat .upload-btn-wrapper .btn span {
+  width: 100%;
+  min-width: 12px;
+  max-width: 40px;
+  margin-right: 8px;
+}
+
+.admin-chat .upload-btn-wrapper .btn span img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.admin-chat .upload-btn-wrapper .btn:hover {
+  color: #fff !important;
+  background-color: #424293 !important;
+  cursor: pointer;
+}
+
+.admin-chat .type-inner-first {
+  max-width: 73% !important;
+}
+
+
+.admin-chat .final-btn button,
+.admin-chat .type-inner-third button {
+  background-color: #424293 !important;
+  color: #fff !important;
+  border: 1px solid #424293 !important;
+  transition: 0.3s all ease;
+}
+
+.admin-chat .final-btn button:hover,
+.admin-chat .type-inner-third button:hover {
+  background-color: #fff !important;
+  color: #424293 !important;
+  cursor: pointer;
+  border-radius: 10px
+}
+
+.admin-chat .type-inner-third button img {
+  filter: brightness(0) invert(1);
+  transition: 0.3s all ease;
+}
+
+.admin-chat .type-inner-third button:hover img {
+  filter: brightness(1) invert(0);
+}
+
+/* End of Admin Chat */
+
+/* Admin Panel Setting */
+.admin-panel-setting .form-table th {
+  padding: 0 0 10px 0;
+  vertical-align: middle;
+}
+
+.select-user-table td,
+.select-user-table td select,
+.admin-panel-setting .form-table select {
+  min-width: 165px;
+}
+
+.select-user-table td:hover {
+  cursor: pointer;
+}
+
+.admin-panel-setting h2 {
+  margin-top: 2em;
+  margin-bottom: 0;
+}
+
+.admin-panel-setting .form-table {
+  margin-top: 0;
+}
+
+.admin-panel-setting .form-table td {
+  padding: 6px;
+}
+
+/* End of Admin Panel Setting */
+
+/* End of Admin Panel (BackEnd) */
+
+
+/* Custom Scroll Bar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #c7c7c7;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64649B;
+  cursor: pointer;
+}
+
+/* OnClick Loader CSS */
+.loader {
+  display: none;
+  /* position: absolute; */
+  width: 22px;
+  height: 22px;
+  /* top: 50%; */
+  /* left: calc(50% + 50px); */
+  /* transform: translate(-50%, -50%); */
+}
+
+.loading {
+  border: 4px solid #fff;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  border-top-color: #64649B;
+  border-bottom-color: #64649B;
+  -webkit-animation: spin 1500ms linear infinite;
+  animation: spin 1500ms linear infinite;
+}
+
+.woocommerce .final-btn .loader::before { display: none;}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ###################################################################### End New CSS ################################################################################################ */
+
+
+
+/* Responive media query */
+@media (min-width: 1401px) {
+  .woocommerce h2 {
+    font-size: 40px;
+    line-height: 60px;
+    margin-bottom: 14px;
+  }
+
+  .wcpt-chat h3 {
+    font-size: 36px;
+    line-height: 54px;
+    margin-bottom: 14px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .woocommerce h2 {
+    font-size: 34px;
+    line-height: 50px;
+  }
+
+  .wcpt-chat h3 {
+    font-size: 30px;
+    line-height: 44px;
+  }
+
+  .chat-main .typing-area {
+    gap: 12px;
+  }
+
+  .type-inner-first {
+    max-width: 73.3% !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .woocommerce h2 {
+    font-size: 30px;
+    line-height: 44px;
+  }
+
+  .woocommerce .wcpt-chat {
+    margin-top: 32px;
+  }
+
+  .wcpt-chat h3 {
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  .chat-main .typing-area {
+    gap: 6px;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .final-btn button {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .new-ticket .typing-area button,
+  .woocommerce .final-btn button {
+    font-size: 18px;
+    line-height: 28px;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .type-inner-first {
+    width: 100%;
+    max-width: 74% !important;
+  }
+
+  .type-inner-second {
+    width: 100%;
+    max-width: 24% !important;
+    height: 100%;
+  }
+
+  .type-inner-second .upload-btn-wrapper,
+  .new-ticket .typing-area .upload-btn-wrapper .btn {
+    height: 100%;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .type-inner-third {
+    flex-grow: 1;
+  }
+
+  .upload-btn-wrapper input[type=file] {
+    max-width: none;
+  }
+
+  .chat-main .outgoing .details p,
+  .chat-main .incoming .details p {
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+  /* .woocommerce .incoming .details p::after { -webkit-transform: translate(-27px, 6px); transform: translate(-27px, 6px);}
+  .woocommerce .outgoing .details p::after { -webkit-transform: translate(27px, 6px); transform: translate(27px, 6px);} */
+  .success {
+    font-size: 15px;
+  }
+
+  /* Admin Panel (BackEnd) */
+  /* Admin Chat */
+  /* .admin-chat .incoming .details p::after { -webkit-transform: translate(-27px, 6px); transform: translate(-27px, 6px);}
+  .admin-chat .outgoing .details p::after { -webkit-transform: translate(27px, 6px); transform: translate(27px, 6px);} */
+  /* End of Admin Chat */
+  /* End of Admin Panel (BackEnd) */
+
+}
+
+@media (max-width: 767px) {
+  .ticket-header {
+    margin-bottom: 16px;
+  }
+
+  .woocommerce .ticket-form label,
+  .woocommerce .ticket-dropdown-inner label {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 2px;
+  }
+
+  .type-inner-first {
+    max-width: 100%;
+  }
+
+  .type-inner-first input {
+    padding: 6px 8px !important;
+  }
+
+  .new-ticket .upload-btn-wrapper .btn,
+  .final-btn button,
+  .new-ticket .typing-area button,
+  .type-inner-second .upload-btn-wrapper .btn,
+  .woocommerce .final-btn button {
+    padding: 6px 8px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .type-inner-second .upload-btn-wrapper .btn {
+    min-height: 36px;
+  }
+
+  .new-ticket .upload-btn-wrapper .btn {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .woocommerce .ticket-form,
+  .ticket-dropdown-inner {
+    margin-bottom: 16px;
+  }
+
+  .new-ticket .upload-main {
+    margin-bottom: 25px;
+  }
+
+  .woocommerce h2 {
+    font-size: 28px;
+    line-height: 40px;
+    margin-bottom: 8px;
+  }
+
+  .wcpt-chat h3 {
+    font-size: 26px;
+    line-height: 36px;
+    margin-bottom: 8;
+  }
+
+  .woocommerce .chat .details {
+    row-gap: 8px;
+  }
+
+  .woocommerce .ticket-form input,
+  .woocommerce .ticket-form textarea,
+  .ticket-dropdown-inner select,
+  .ticket-dropdown-inner input,
+  .typing-area input {
+    padding: 6px 8px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .chat-main .outgoing .details p,
+  .chat-main .incoming .details p {
+    padding: 12px 14px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .chat-main .incoming .details p span:first-child,
+  .chat-main .incoming .details p span:first-child {
+    font-size: 17px;
+    line-height: 23px;
+    margin-bottom: 4px;
+  }
+
+  .chat-main .incoming .details p span:last-child,
+  .chat-main .incoming .details p span:last-child {
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: 4px;
+  }
+
+  /* .woocommerce .incoming .details p::after { -webkit-transform: translate(-27px, 5px); transform: translate(-27px, 5px);}
+  .woocommerce .outgoing .details p::after { -webkit-transform: translate(27px, 5px); transform: translate(27px, 5px);} */
+  .new-ticket .typing-area .type-inner-third button span,
+  .new-ticket .typing-area .type-inner-third button img {
+    max-width: 15px;
+  }
+
+  .woocommerce-account .woocommerce-MyAccount-content input[type=radio]+label {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .ticket-radio input[type='radio']:checked:after {
+    top: 3px;
+  }
+
+  /* Error / Success */
+  span.error {
+    font-size: 12px !important;
+    line-height: 16px !important;
+    font-weight: 400 !important;
+  }
+
+  .success {
+    font-size: 14px !important;
+    line-height: 18px !important;
+    font-weight: 500 !important;
+  }
+
+  /* Admin Panel (BackEnd) */
+  /* Admin Chat */
+  /* Admin Chat */
+  .admin-chat .type-inner-second .upload-btn-wrapper .btn {
+    min-height: 40px;
+  }
+
+  /* .admin-chat .incoming .details p::after { -webkit-transform: translate(-27px, 5px); transform: translate(-27px, 5px);}
+  .admin-chat .outgoing .details p::after { -webkit-transform: translate(27px, 5px); transform: translate(27px, 5px);} */
+  /* End of Admin Chat */
+  /* End of Admin Panel (BackEnd) */
+
+}
+
+@media (max-width: 575px) {
+  .woocommerce h2 {
+    font-size: 26px;
+    line-height: 38px;
+  }
+
+  .woocommerce .wcpt-chat {
+    margin-top: 25px;
+  }
+
+  .wcpt-chat h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .final-btn button,
+  .woocommerce .final-btn button {
+    font-size: 14px;
+    line-height: 22px;
+    gap: 4px;
+  }
+
+  .woocommerce .ticket-form input,
+  .woocommerce .ticket-form textarea,
+  .ticket-dropdown-inner select,
+  .ticket-dropdown-inner input,
+  .typing-area input {
+    font-size: 14px;
+  }
+
+  .chat-main .outgoing .details p,
+  .chat-main .incoming .details p {
+    font-size: 14px;
+  }
+
+  /* .woocommerce .incoming .details p::after { -webkit-transform: translate(-27px, 6px); transform: translate(-27px, 6px);}
+  .woocommerce .outgoing .details p::after { -webkit-transform: translate(27px, 6px); transform: translate(27px, 6px);} */
+  .woocommerce-account .woocommerce-MyAccount-content input[type=radio]+label {
+    font-size: 14px;
+  }
+
+
+  /* My Tickets ADMIN SIDE */
+  .page-numbers {
+    column-gap: 6px;
+    padding: 10px 14px;
+  }
+
+  /* End of My Tickets ADMIN SIDE */
+
+  /* Admin Panel (BackEnd) */
+  /* Admin Chat */
+  /* Admin Chat */
+  /* .admin-chat .incoming .details p::after { -webkit-transform: translate(-27px, 6px); transform: translate(-27px, 6px);}
+  .admin-chat .outgoing .details p::after { -webkit-transform: translate(27px, 6px); transform: translate(27px, 6px);} */
+  /* End of Admin Chat */
+  /* End of Admin Panel (BackEnd) */
+
+
+}
+
+@media screen and (max-width: 480px) {
+  .ticket-dropdown-inner {
+    width: 100%;
+  }
+
+  .type-inner-first {
+    max-width: 100% !important;
+  }
+
+  .type-inner-second {
+    max-width: 100% !important;
+  }
+
+  /* Admin Panel (BackEnd) */
+  /* Admin Chat */
+  /* Admin Chat */
+  .admin-chat .type-inner-first {
+    max-width: 100% !important;
+  }
+
+  /* End of Admin Chat */
+  /* End of Admin Panel (BackEnd) */
+}
+
+@media screen and (max-width: 450px) {
+
+  .form,
+  .users {
+    padding: 20px;
+  }
+
+  .form header {
+    text-align: center;
+  }
+
+  .form form .name-details {
+    flex-direction: column;
+  }
+
+  .form .name-details .field:first-child {
+    margin-right: 0px;
+  }
+
+  .form .name-details .field:last-child {
+    margin-left: 0px;
+  }
+
+  .users header img {
+    height: 45px;
+    width: 45px;
+  }
+
+  .users header .logout {
+    padding: 6px 10px;
+    font-size: 16px;
+  }
+
+  :is(.users, .users-list) .content .details {
+    margin-left: 15px;
+  }
+
+  .users-list a {
+    padding-right: 10px;
+  }
+
+  .chat-area header {
+    padding: 15px 20px;
+  }
+
+  .chat-box {
+    min-height: 400px;
+    padding: 10px 15px 15px 20px;
+  }
+
+  .chat-box .chat p {
+    font-size: 15px;
+  }
+
+  .chat-box .outgoing .details,
+  .chat-box .incoming .details {
+    max-width: 265px;
+  }
+
+  .incoming .details img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .chat-area form {
+    padding: 20px;
+  }
+
+  .chat-area form input {
+    height: 40px;
+    width: calc(100% - 48px);
+  }
+
+  .chat-area form button {
+    width: 45px;
+  }
+
+  /* ########################################################## New CSS ################################################################# */
+  .chat-main .typing-area {
+    justify-content: center;
+  }
+
+  .type-inner-first {
+    max-width: 100%;
+  }
+
+  /* My Tickets ADMIN SIDE */
+  .page-numbers {
+    column-gap: 4px;
+    padding: 10px 12px;
+  }
+
+  /* End of My Tickets ADMIN SIDE */
+  /* ########################################################## End New CSS ################################################################# */
+
+
+}
+
+@media (max-width: 425px) {
+  .woocommerce-account .woocommerce-MyAccount-content input[type=radio] {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ticket-radio input[type='radio']:after {
+    width: 11px;
+    height: 11px;
+  }
+}
